@@ -1,0 +1,6 @@
+getData -> Pega os dados do arquivo e armazena em uma variável.
+const -> Define uma constante que não pode ser alterada.
+
+setleft -> Define a posição do elemento à esquerda.
+setright -> Define a posição do elemento à direita.
+

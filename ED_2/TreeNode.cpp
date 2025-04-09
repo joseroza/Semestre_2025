@@ -54,7 +54,7 @@ TreeNode* TreeNode::insertBalanced(int new_data) {
 }
 
 // Exibe a árvore de forma hierárquica
-void TreeNode::printTree(const string& prefix, bool isLeft) {
+void TreeNode::printTree(const string& prefix, bool isLeft){
     if (right)
         right->printTree(prefix + (isLeft ? "|   " : "    "), false);
 
@@ -67,28 +67,28 @@ void TreeNode::printTree(const string& prefix, bool isLeft) {
 }
 
 // Percurso em Pré-Ordem (RAIZ, ESQUERDA, DIREITA):
-void TreeNode::preOrder() {
+void TreeNode::preOrder(){
     cout << data << " ";
     if (left) left->preOrder();
     if (right) right->preOrder();
 }
 
 // Percurso em Ordem (ESQUERDA, RAIZ, DIREITA):
-void TreeNode::inOrder() {
+void TreeNode::inOrder(){
     if (left) left->inOrder();
     cout << data << " ";
     if (right) right->inOrder();
 }
 
 // Percurso em Pós-Ordem (ESQUERDA, DIREITA, RAIZ):
-void TreeNode::postOrder() {
+void TreeNode::postOrder(){
     if (left) left->postOrder();
     if (right) right->postOrder();
     cout << data << " ";
 }
 
 // Busca um valor 'key' na árvore: Retorna 'true' se encontrado, ou 'false' caso contrário
-bool TreeNode::search(int key) {
+bool TreeNode::search(int key){
     if (data == key) return true;
     if (key < data && left) return left->search(key);
     if (key > data && right) return right->search(key);
@@ -96,7 +96,7 @@ bool TreeNode::search(int key) {
 }
 
 // Calcula a altura da árvore, retornando a maior profundidade entre os sub-ramos e retorna 0 caso não exista subárvore
-int TreeNode::height() {
+int TreeNode::height(){
     int leftHeight = left ? left->height() : 0;
     int rightHeight = right ? right->height() : 0;
 
@@ -104,14 +104,14 @@ int TreeNode::height() {
 }
 
 // Retorna o fator de balanceamento do nó atual, que é a diferença entre a altura da subárvore esquerda - subárvore direita.
-int TreeNode::getBalance() {
+int TreeNode::getBalance(){
     int leftHeight = left ? left->height() : 0;
     int rightHeight = right ? right->height() : 0;
 
     return leftHeight - rightHeight;
 }
 
-TreeNode* TreeNode::rotateRight() {
+TreeNode* TreeNode::rotateRight(){
     TreeNode* newRoot = left;
     TreeNode* temp = newRoot->right;
 
@@ -121,7 +121,7 @@ TreeNode* TreeNode::rotateRight() {
     return newRoot;
 }
 
-TreeNode* TreeNode::rotateLeft() {
+TreeNode* TreeNode::rotateLeft(){
     TreeNode* newRoot = right;
     TreeNode* temp = newRoot->left;
 
@@ -133,7 +133,7 @@ TreeNode* TreeNode::rotateLeft() {
 
 // Remove um nó com valor 'key' da árvore e retorna o novo nó raiz da subárvore
 
-TreeNode* TreeNode::deleteNode(int key) {
+TreeNode* TreeNode::deleteNode(int key){
     if (key < data && left) {
         left = left->deleteNode(key);
     } else if (key > data && right) {
